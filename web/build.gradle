@@ -4,6 +4,7 @@ plugins {
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
@@ -11,4 +12,5 @@ dependencies {
     compile group: 'jstl', name: 'jstl', version: '1.2'
     compile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.0'
     compile group: 'javax.servlet.jsp', name: 'javax.servlet.jsp-api', version: '2.3.1'
+    compile group: 'com.soong', name: 'tools', version: '1.0'
 }

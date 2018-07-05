@@ -25,7 +25,7 @@
 	<h2 class="text-center">注册</h2>
 	<br>
 	<form id="defaultForm" class="form-horizontal" action="<c:url value="/UserServlet"/>" method="post">
-		<input type="hidden" name="method" value="regist"/>
+		<input type="hidden" name="method" value="register"/>
 		<div class="form-group" id="nameDiv">
 			<label for="inputName3" class="col-sm-2 control-label">用户名</label>
 			<div class="col-sm-10">
@@ -44,6 +44,12 @@
 			<div class="col-sm-10">
 				<input type="password" class="form-control" id="inputPassword4" name="confirmPassword"
 				       placeholder="确认密码">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputCellphone3" class="col-sm-2 control-label">手　机</label>
+			<div class="col-sm-10">
+				<input type="email" class="form-control" id="inputCellphone3" name="cellphone" placeholder="手机">
 			</div>
 		</div>
 		<div class="form-group">
