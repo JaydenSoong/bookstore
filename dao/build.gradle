@@ -1,7 +1,0 @@
-repositories {
-    mavenLocal()
-}
-
-dependencies {
-    compile group: 'com.soong', name: 'tools', version: '1.0'
-}
