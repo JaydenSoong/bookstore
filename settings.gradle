@@ -1,0 +1,6 @@
+rootProject.name = 'bookstore'
+include 'entity'
+include 'dao'
+include 'service'
+include 'web'
+
