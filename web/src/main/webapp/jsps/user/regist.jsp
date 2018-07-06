@@ -109,7 +109,13 @@
                         phone: {
                             country: 'CN',
 	                        message:'请输入正确的手机号码'
-                        }
+                        },
+                        remote: {
+                            url: "<c:url value="/UserServlet?method=validatePhoneNumber"/>",
+                            params: "phoneNumber=" + document.getElementById("inputCellphone3").value,
+                            type: 'POST',
+                            message: '手机号码已经被注册'
+                        },
                     }
                 },
                 email: {
@@ -119,7 +125,7 @@
                         },
                         remote: {
                             url: "<c:url value="/UserServlet?method=validateEmail"/>",
-                            params: "username=" + document.getElementById("inputEmail3").value,
+                            params: "email=" + document.getElementById("inputEmail3").value,
                             type: 'POST',
                             message: '该邮箱已经被注册'
                         }
