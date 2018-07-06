@@ -30,7 +30,6 @@
 			<label for="inputName3" class="col-sm-2 control-label">用户名</label>
 			<div class="col-sm-10">
 				<input type="text" name="username" class="form-control" id="inputName3" placeholder="用户名">
-				<span class="glyphicon form-control-feedback" id="nameSpan"></span>
 			</div>
 		</div>
 		<div class="form-group">
@@ -47,9 +46,9 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="inputCellphone3" class="col-sm-2 control-label">手　机</label>
+			<label for="inputCellphone3" class="col-sm-2 control-label" >手　机</label>
 			<div class="col-sm-10">
-				<input type="email" class="form-control" id="inputCellphone3" name="cellphone" placeholder="手机">
+				<input type="text" class="form-control" id="inputCellphone3" name="phoneNumber" placeholder="手机" />
 			</div>
 		</div>
 		<div class="form-group">
@@ -78,7 +77,6 @@
             },
             fields: {
                 username: {
-                    message: '用户名不可用',
                     validators: {
                         notEmpty: {
                             message: '用户名不能为空'
@@ -101,6 +99,16 @@
                         different: {
                             field: 'password,confirmPassword',
                             message: '用户名和密码不能相同'
+                        }
+                    }
+                },
+                phoneNumber: {
+                    validators: {
+                        notEmpty: {message:'手机号码不能为空'},
+                        digits: {message:'手机号码只能是数字'},
+                        phone: {
+                            country: 'CN',
+	                        message:'请输入正确的手机号码'
                         }
                     }
                 },

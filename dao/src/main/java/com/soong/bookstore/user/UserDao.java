@@ -39,13 +39,13 @@ public class UserDao{
 
 	/**
 	 * 按手机查询用户
-	 * @param cellphone, 需要查询的手机
+	 * @param phoneNumber, 需要查询的手机
 	 * @return 查找到的用户，若没有找到，则为 null
 	 */
-	public User queryByCellphone(String cellphone) {
-		var sql = "SELECT * FROM tb_user WHERE cellphone = ?";
+	public User queryByPhoneNumber(String phoneNumber) {
+		var sql = "SELECT * FROM tb_user WHERE phoneNumber = ?";
 		try {
-			return qr.query(sql, new BeanHandler<>(User.class), cellphone);
+			return qr.query(sql, new BeanHandler<>(User.class), phoneNumber);
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -57,8 +57,8 @@ public class UserDao{
 	 */
 	public void add(User user) {
 		var sql = "INSERT INTO tb_user VALUES(?, ?, ?, ?, ?, ?, ?)";
-		Object[] params = {user.getUid(), user.getUsername(), user.getPassword(), user.getCellphone(), user.getEmail(),
-				user.getCode(), user.isState()};
+		Object[] params = {user.getUid(), user.getUsername(), user.getPassword(), user.getPhoneNumber(),
+				user.getEmail(), user.getCode(), user.isState()};
 		try {
 			qr.update(sql, params);
 		} catch (SQLException e) {

@@ -5,7 +5,7 @@ CREATE TABLE tb_user(
   uid CHAR(32) PRIMARY KEY,/*主键*/
   username VARCHAR(50) NOT NULL,/*用户名*/
   `password` VARCHAR(50) NOT NULL,/*密码*/
-  cellphone CHAR(11) NOT NULL, /*手机*/
+  phoneNumber CHAR(11) NOT NULL, /*手机*/
   email VARCHAR(50) NOT NULL,/*邮箱*/
   `code` CHAR(64) NOT NULL,/*激活码*/
   state BOOLEAN/*用户状态，有两种是否激活*/

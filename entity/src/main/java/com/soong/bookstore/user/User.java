@@ -4,7 +4,16 @@ public class User {
 	private String uid;
 	private String username;
 	private String password;
-	private String cellphone;
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	private String phoneNumber;
 	private String email;
 	private String code;
 	private boolean state;
@@ -33,13 +42,7 @@ public class User {
 		this.password = password;
 	}
 
-	public String getCellphone() {
-		return cellphone;
-	}
 
-	public void setCellphone(String cellphone) {
-		this.cellphone = cellphone;
-	}
 
 	public String getEmail() {
 		return email;
