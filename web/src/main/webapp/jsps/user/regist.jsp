@@ -62,7 +62,6 @@
 				<button type="submit" class="btn btn-default" id="btn">注册</button>
 			</div>
 		</div>
-
 	</form>
 </div>
 

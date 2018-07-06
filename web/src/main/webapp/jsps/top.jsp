@@ -32,11 +32,11 @@
 <h1 style="text-align: center;">网上书店</h1>
 <div>
 	<c:choose>
-		<c:when test="${not empty requestScope.user}">
-			${requestScope.user.username}&nbsp;&nbsp;|&nbsp;&nbsp;
+		<c:when test="${not empty sessionScope.user}">
+			您好：${sessionScope.user.username}&nbsp;&nbsp;|&nbsp;&nbsp;
 			<a href="<c:url value='/jsps/cart/list.jsp'/>" target="body">我的购物车</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 			<a href="<c:url value='/jsps/order/list.jsp'/>" target="body">我的订单</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-			<a href="javascript:alert('您已经退出');" target="_parent">退出</a>
+			<a href="<c:url value="/UserServlet?method=logout"/> " target="_parent">退出</a>
 		</c:when>
 		<c:otherwise>
 			<a href="<c:url value='/jsps/user/login.jsp'/>" target="_blank">登录</a> |&nbsp;

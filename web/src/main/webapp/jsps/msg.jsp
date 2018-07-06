@@ -11,14 +11,23 @@
 	<title>${requestScope.msg}</title>
 	<link rel="stylesheet" href="<c:url value="/css/basic.css"/> ">
 	<link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/> ">
+	<style>
+		.container {
+			border: 1px silver solid;
+			border-radius: 5px;
+			margin-top: 20px;
+			padding: 20px 20px 200px 20px
+		}
+	</style>
 </head>
-
 <body>
-<h2>${requestScope.msg }</h2>
-<ul>
-	<li><a href="<c:url value='/index.jsp'/>">主页</a></li>
-	<li><a href="<c:url value='/jsps/user/login.jsp'/>">登录</a></li>
-	<li><a href="<c:url value='/jsps/user/regist.jsp'/>">注册</a></li>
-</ul>
+<div class="container col-md-4 col-md-offset-4">
+	<h2>${requestScope.msg }</h2>
+	<ul>
+		<li><a href="<c:url value='/index.jsp'/>">主页</a></li>
+		<li><a href="<c:url value='/jsps/user/login.jsp'/>">登录</a></li>
+		<li><a href="<c:url value='/jsps/user/regist.jsp'/>">注册</a></li>
+	</ul>
+</div>
 </body>
 </html>

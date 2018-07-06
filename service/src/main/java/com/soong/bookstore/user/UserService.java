@@ -51,4 +51,17 @@ public class UserService {
 		if (user.isState()) throw new UserException("该账户已激活，请不要重复操作!");
 		userDao.updateState(user.getUid(), true);
 	}
+
+	/**
+	 * 用户登录功能
+	 */
+	public User login(User user) throws UserException {
+		var username = user.getUsername();
+		var _user = userDao.queryByUsername(username);
+		// 根据用户输入的用户查询，如果没有查到或密码不匹配，则说明用户名或密码是错的
+		if (_user == null || !_user.getPassword().equals(user.getPassword()))
+			throw new UserException("用户名或密码错误！");
+		if (!_user.isState()) throw new UserException("该账户尚未激活!");
+		return _user;
+	}
 }

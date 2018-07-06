@@ -12,6 +12,7 @@ import net.sf.json.JSONObject;
 import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -86,6 +87,7 @@ public class UserServlet extends BaseServlet {
 		user.setCode(CommonUtils.uuid() + CommonUtils.uuid());
 		userService.register(user);
 
+		// 用户注册完成之后，发邮件
 		var prop = new Properties();
 		prop.load(this.getClass().getClassLoader().getResourceAsStream("email_template.properties"));
 		var host = prop.getProperty("host");
@@ -124,5 +126,38 @@ public class UserServlet extends BaseServlet {
 			request.setAttribute("msg", e.getMessage());
 			return "/jsps/msg.jsp";
 		}
+	}
+
+	/**
+	 * 用户登录
+	 */
+	public String login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		var user = CommonUtils.toBean(request.getParameterMap(), User.class);
+		try {
+			var _user = userService.login(user);
+			request.getSession().setAttribute("user", _user);
+			/*
+			  设置 Cookie 用于记录上一次的正确用户名
+			  cookie 需要设置生命周期，不然关闭浏览器之后就没有了
+			  将 cookie 添加到响应中
+			 */
+			var cookie = new Cookie("username", _user.getUsername());
+			cookie.setMaxAge(60*60*24*30);
+			response.addCookie(cookie);
+			return "r:/index.jsp";
+		} catch (UserException e) {
+			request.setAttribute("msg", e.getMessage());
+			// 用于回显
+			request.setAttribute("formUser", user);
+			return "/jsps/user/login.jsp";
+		}
+	}
+
+	/**
+	 * 用户退出
+	 */
+	public String logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getSession().invalidate();
+		return "r:/index.jsp";
 	}
 }
