@@ -15,8 +15,8 @@
 		.icon {
 			margin: 10px 20px;
 			padding: 5px;
-			border: solid 1px gray;
-			width: 160px;
+			border: solid 1px #afd9ee;
+			width: 170px;
 			height: 180px;
 			text-align: center;
 			float: left;
@@ -25,60 +25,13 @@
 </head>
 
 <body>
-<div class="icon">
-	<a href="<c:url value='/jsps/book/desc.jsp'/>"><img src="<c:url value='/book_img/8758723-1_l.jpg'/>"
-	                                                    border="0"/></a>
-	<br/>
-	<a href="<c:url value='/jsps/book/desc.jsp'/>">Java开发详解</a>
-</div>
-<div class="icon">
-	<a href="<c:url value='/jsps/book/desc.jsp'/>"><img src="<c:url value='/book_img/8991366-1_l.jpg'/>"
-	                                                    border="0"/></a>
-	<br/>
-	<a href="<c:url value='/jsps/book/desc.jsp'/>">Java开发详解</a>
-</div>
-<div class="icon">
-	<a href="<c:url value='/jsps/book/desc.jsp'/>"><img src="<c:url value='/book_img/9265169-1_l.jpg'/>"
-	                                                    border="0"/></a>
-	<br/>
-	<a href="<c:url value='/jsps/book/desc.jsp'/>">Java开发详解</a>
-</div>
-<div class="icon">
-	<a href="<c:url value='/jsps/book/desc.jsp'/>"><img src="<c:url value='/book_img/9317290-1_l.jpg'/>"
-	                                                    border="0"/></a>
-	<br/>
-	<a href="<c:url value='/jsps/book/desc.jsp'/>">Java开发详解</a>
-</div>
-<div class="icon">
-	<a href="<c:url value='/jsps/book/desc.jsp'/>"><img src="<c:url value='/book_img/20029394-1_l.jpg'/>"
-	                                                    border="0"/></a>
-	<br/>
-	<a href="<c:url value='/jsps/book/desc.jsp'/>">Java开发详解</a>
-</div>
-<div class="icon">
-	<a href="<c:url value='/jsps/book/desc.jsp'/>"><img src="<c:url value='/book_img/20285763-1_l.jpg'/>"
-	                                                    border="0"/></a>
-	<br/>
-	<a href="<c:url value='/jsps/book/desc.jsp'/>">Java开发详解</a>
-</div>
-<div class="icon">
-	<a href="<c:url value='/jsps/book/desc.jsp'/>"><img src="<c:url value='/book_img/20385925-1_l.jpg'/>"
-	                                                    border="0"/></a>
-	<br/>
-	<a href="<c:url value='/jsps/book/desc.jsp'/>">Java开发详解</a>
-</div>
-<div class="icon">
-	<a href="<c:url value='/jsps/book/desc.jsp'/>"><img src="<c:url value='/book_img/22722790-1_l.jpg'/>"
-	                                                    border="0"/></a>
-	<br/>
-	<a href="<c:url value='/jsps/book/desc.jsp'/>">Java开发详解</a>
-</div>
-<div class="icon">
-	<a href="<c:url value='/jsps/book/desc.jsp'/>"><img src="<c:url value='/book_img/22788412-1_l.jpg'/>"
-	                                                    border="0"/></a>
-	<br/>
-	<a href="<c:url value='/jsps/book/desc.jsp'/>">Java开发详解</a>
-</div>
+<c:forEach items="${requestScope.books}" var="book">
+	<div class="icon">
+		<a href="<c:url value='/jsps/book/desc.jsp'/>"><img src="<c:url value='${book.image}'/>"/></a>
+		<br/>
+		<a href="<c:url value='/jsps/book/desc.jsp'/>">${book.bname}</a>
+	</div>
+</c:forEach>
 </body>
 </html>
 

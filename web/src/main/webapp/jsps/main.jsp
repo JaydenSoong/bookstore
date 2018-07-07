@@ -27,7 +27,7 @@
 		<iframe frameborder="0" src="<c:url value='/jsps/top.jsp'/>" name="top"></iframe>
 	</header>
 	<aside class="col-md-2 left divstyle">
-		<iframe frameborder="0"  src="<c:url value='/jsps/left.jsp'/>" name="left"></iframe>
+		<iframe frameborder="0"  src="<c:url value="/CategoryServlet?method=listAllCategory"/>" name="left"></iframe>
 	</aside>
 	<div class="col-md-10 right divstyle noLeftborder">
 		<iframe frameborder="0" src="<c:url value='/jsps/body.jsp'/>" name="body"></iframe>

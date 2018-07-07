@@ -29,7 +29,7 @@ SELECT * FROM category;
 CREATE TABLE book (
   bid CHAR(32) PRIMARY KEY,/*主键*/
   bname VARCHAR(100),/*图书名*/
-  price DECIMAL(5,1),/*单价*/
+  price DECIMAL(6,2),/*单价*/
   author VARCHAR(20),/*作者*/
   image VARCHAR(200),/*图片*/
   cid CHAR(32),/*所属分类*/

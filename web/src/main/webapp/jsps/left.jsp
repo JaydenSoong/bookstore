@@ -18,27 +18,17 @@
 			margin: 3px;
 			padding: 3px;
 		}
-
-		a {
-			text-decoration: none;
-		}
 	</style>
 </head>
 
 <body>
 <div>
-	<a href="<c:url value='/jsps/book/list.jsp'/>">全部分类</a>
+	<a href="<c:url value='/BookServlet?method=listAll'/>">全部分类</a>
 </div>
-
-
-<div>
-	<a href="<c:url value='/jsps/book/list.jsp'/>">JavaSE分类</a>
-</div>
-<div>
-	<a href="<c:url value='/jsps/book/list.jsp'/>">JavaEE分类</a>
-</div>
-<div>
-	<a href="<c:url value='/jsps/book/list.jsp'/>">Javascript分类</a>
-</div>
+<c:forEach items="${requestScope.categories}" var="category">
+	<div>
+		<a href="<c:url value='/BookServlet?method=listBycid&cid=${category.cid}'/>">${category.cname} 分类</a>
+	</div>
+</c:forEach>
 </body>
 </html>
