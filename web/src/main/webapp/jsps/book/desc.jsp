@@ -12,49 +12,50 @@
 	<link rel="stylesheet" href="<c:url value="/css/basic.css"/> ">
 	<link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/> ">
 	<style type="text/css">
-		div {
+		.img {
 			margin: 20px;
-			border: solid 2px gray;
-			width: 150px;
-			height: 150px;
+			border: solid 1px #afd9ee;
+			width: 200px;
+			height: 200px;
 			text-align: center;
+			padding: 20px;
 		}
 
-		li {
-			margin: 10px;
+		a, a:hover{
+			background: url(<c:url value='/images/all.png'/>) no-repeat;
+			display: inline-block;
+			margin-left: 20px;
+			height: 36px;
+			width: 146px;
 		}
-
 		a {
-			background: url(<c:url value='/images/all.png'/>) no-repeat;
-			display: inline-block;
 			background-position: 0 -70px;
-			margin-left: 30px;
-			height: 36px;
-			width: 146px;
 		}
 
-		a:HOVER {
-			background: url(<c:url value='/images/all.png'/>) no-repeat;
-			display: inline-block;
+		a:hover {
 			background-position: 0 -106px;
-			margin-left: 30px;
-			height: 36px;
-			width: 146px;
+		}
+		.input-group {
+			margin: 20px;
+			width: 130px;
 		}
 	</style>
 </head>
 
 <body>
-<div>
-	<img src="<c:url value='/book_img/8758723-1_l.jpg'/>" border="0"/>
+<div class="img">
+	<img src="<c:url value='${requestScope.book.image}'/>" border="0"/>
 </div>
 <ul>
-	<li>书名：Java开发详解</li>
-	<li>作者：张孝祥</li>
-	<li>单价：39.9元</li>
+	<li>书名：${requestScope.book.bname}</li>
+	<li>作者：${requestScope.book.author}</li>
+	<li>单价：${requestScope.book.price} 元</li>
 </ul>
-<form id="form" action="<c:url value='/jsps/cart/list.jsp'/>" method="post">
-	<input type="text" size="3" name="count" value="1"/>
+<form id="form" action="<c:url value='/jsps/cart/list.jsp'/>" method="post" >
+	<div class="input-group">
+		<span class="input-group-addon" id="basic-addon1">数量</span>
+		<input type="text" class="form-control"  name="count" aria-describedby="basic-addon1">
+	</div>
 </form>
 <a href="javascript:document.getElementById('form').submit();"></a>
 </body>

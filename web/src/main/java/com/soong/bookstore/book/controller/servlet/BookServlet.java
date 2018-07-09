@@ -18,7 +18,7 @@ public class BookServlet extends BaseServlet {
 	 */
 	public String listBycid(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		var cid = request.getParameter("cid");
-		request.setAttribute("books", bookService.findBybid(cid));
+		request.setAttribute("books", bookService.findBycid(cid));
 		return "/jsps/book/list.jsp";
 	}
 
@@ -28,5 +28,14 @@ public class BookServlet extends BaseServlet {
 	public String listAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("books", bookService.findAll());
 		return "/jsps/book/list.jsp";
+	}
+
+	/**
+	 * 加载一本图书
+	 */
+	public String load(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		var bid = request.getParameter("bid");
+		request.setAttribute("book", bookService.findBybid(bid));
+		return "/jsps/book/desc.jsp";
 	}
 }

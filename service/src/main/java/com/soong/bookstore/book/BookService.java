@@ -10,7 +10,7 @@ public class BookService {
 	 * @param cid, 图书分类
 	 * @return List<Book>
 	 */
-	public List<Book> findBybid(String cid) {
+	public List<Book> findBycid(String cid) {
 		return bookDao.queryBybid(cid);
 	}
 
@@ -20,5 +20,14 @@ public class BookService {
 	 */
 	public List<Book> findAll() {
 		return bookDao.queryAll();
+	}
+
+	/**
+	 * 根据 id 查找国书
+	 * @param bid, 图书 id
+	 * @return Book
+	 */
+	public Book findBybid(String bid) {
+		return bookDao.queryBook(bid);
 	}
 }
