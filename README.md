@@ -65,3 +65,4 @@ dependencies {
 * c3p0
 ## 页面静态化
 * left.jsp 内容相对固定，可以静态化 --> left.html
+* 各个图书的信息页面也是相对固定的，可以静态化。生成对应的 bid.html 如 1.html, 2.html, ...
